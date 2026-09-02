@@ -281,7 +281,8 @@ export class EmailAgent extends AIChatAgent<any> {
 		const systemPrompt = await getSystemPrompt(env, mailboxId);
 
 		const result = streamText({
-			model: workersai("@cf/moonshotai/kimi-k2.5"),
+			model: workersai("@cf/zai-org/glm-5.3-flash"),
+			// model: workersai("@cf/moonshotai/kimi-k2.5"),
 			system: systemPrompt,
 			messages: await convertToModelMessages(this.messages),
 			tools,
@@ -463,7 +464,8 @@ Based on the email content and thread context above, draft a reply using draft_r
 
 		try {
 			const result = await generateText({
-				model: workersai("@cf/moonshotai/kimi-k2.5"),
+				model: workersai("@cf/zai-org/glm-5.3-flash"),
+				// model: workersai("@cf/moonshotai/kimi-k2.5"),
 				system: systemPrompt,
 				messages: await convertToModelMessages(messages),
 				tools,
